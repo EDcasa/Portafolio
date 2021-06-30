@@ -1,0 +1,84 @@
+<div class="wrapper" (psScrollY)="listenerY($event)"
+     [perfectScrollbar]="config">
+  <div class=" d-flex flex-wrap">
+    <mat-tab-group class="wrapper-tab-group-custom" disableRipple>
+      <mat-tab >
+        <ng-template mat-tab-label>
+          <span class="icon"><i class="uil uil-youtube"></i></span>
+          <span>Cursos</span>
+        </ng-template>
+        <div class="block-repo block-yt animate__animated animate__fadeInUp animation-{{i*2}}
+   col-12 col-sm-12 col-md-12 col-lg-4" *ngFor="let item of youtube;let i = index">
+          <div class="block-repo-in d-flex"  *ngIf="item.id.hasOwnProperty('videoId')">
+            <div class="left d-flex w-100">
+              <div class="top">
+                <div class="description w-100">
+                  <img class="img-yt" appImgBrake [src]="item.snippet.thumbnails?.default.url" alt="">
+                  <a target="_blank" class="link-clear" href="https://www.youtube.com/playlist?list={{item.id}}">
+                    <!-- <div class="badge-count">{{item?.contentDetails?.itemCount | json}} videos o más</div> -->
+                    <div class="line-clamp">{{item.snippet.description}}</div>
+                    <div class="date" style="color: black;">{{item.snippet.publishedAt | date}}</div>
+                  </a>
+
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="title title-yt truncate">
+                  <a target="_blank" href="https://www.youtube.com/playlist?list={{item.id}}">{{item.snippet.title}}</a>
+                </div>
+                <div class="tag">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="icon"><i class="uil uil-github"></i></span>
+          <span>Repositorio</span>
+        </ng-template>
+        <div class="block-repo  animate__animated animate__fadeInUp animation-{{i*2}}
+   col-12 col-sm-12 col-md-12 col-lg-4" *ngFor="let item of repos;let i = index">
+          <div class="block-repo-in d-flex">
+            <div class="left d-flex">
+              <div class="top">
+                <div class="date">{{item.created_at |date}}</div>
+                <div class="description">
+                  <!--              <img width="80" class="image-description" src="https://i2.wp.com/academy.leewayweb.com/wp-content/uploads/2019/05/dashboard.png?fit=3251%2C1972&ssl=1" alt="">-->
+                  {{item.description}}
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="title">{{item.name}}</div>
+                <div class="tag">
+                  <span>{{item.language}}</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="right d-flex">
+              <div class="top">
+                <a [href]="item.html_url" target="_blank">
+                  <i class="uil uil-external-link-alt"></i>
+                </a>
+
+              </div>
+              <div class="bottom">
+                <span class="text">{{item.forks}} </span><i class="uil uil-code-branch"></i>
+              </div>
+              <div class="bottom">
+                <span class="text">{{item.stargazers_count}} </span><i class="uil uil-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!--        <mat-tab label="Third"> Content 3 </mat-tab>-->
+    </mat-tab-group>
+
+  </div>
+
+</div>

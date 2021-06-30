@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+:root {
+  --color-1: white;
+  //--color-1: #00296b;
+  --color-2: #1a86db;
+  --color-3: #1a1a1a;
+  --opacity-1: #ffffff85;
+}
+
+html, body {
+  background: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-software-training-software-development-background-image_185246.jpg);
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  color: var(--color-3);
+  font-family: 'Poppins', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.mat-tab-group, .mat-tab-label, .mat-tab-link {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+a, a:visited, a:hover, a:link {
+  color: var(--color-3);
+  //font-weight: 500;
+}
+
+@for $i from 1 through 100 {
+  .animation-#{$i} {
+    animation-delay: #{$i /10}s;
+  }
+}
+
+.m-0{
+  margin: 0 !important;
+}
+
+.title {
+  .type-span {
+    color: var(--color-3) !important;
+  }
+
+  .cursor-span {
+    color: var(--color-3) !important;
+  }
+}
+
+.link-clear {
+  text-decoration: none;
+}
+
+hr {
+  border-color: #ffffff17;
+  margin: 2rem 0;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+@media screen and (max-width: 415px) {
+  .video-wrapper{
+    display: none;
+  }
+  .block-repo-in, .block-repo{
+    padding: 0 !important;
+  }
+  .col-12 {
+    padding: .25rem;
+  }
+}
